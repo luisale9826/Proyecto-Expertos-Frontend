@@ -1,0 +1,88 @@
+<h2 mat-dialog-title>¿Cual será tu lugar a Vacacionar?</h2>
+<mat-dialog-content>
+    <form>
+        <div fxLayout="column" fxFill>
+            <div fxLayout="row" fxFill>
+                <mat-form-field appearance="standard">
+                    <mat-label>Mejor Mes</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let mes of meses" [value]="mes.value">
+                            {{mes.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Alojamiento</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let aloj of alojamiento" [value]="aloj.value">
+                            {{aloj.option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Accesibilidad</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
+                            {{opcion.option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Precio</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let p of precio" [value]="p.value">
+                            {{p.option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Clima</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let c of clima" [value]="c.value">
+                            {{c.option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Comida</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
+                            {{opcion.option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row">
+                <mat-form-field appearance="standard">
+                    <mat-label>Conexión a Internet</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
+                            {{opcion.option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxFill>
+                <div id='map'></div>
+            </div>
+        </div>
+        <input class="btn btn-success" mat-dialog-close value="Calcular" name="calcular" />
+    </form>
+
+</mat-dialog-content>

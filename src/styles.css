@@ -1,1 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
+header {
+    background-color: #326437;
+    margin-right: auto;
+}
+
+.logo {
+    width: 15%;
+    background-color: #ffffff;
+}
+
+.carousel-item > img {
+    width: 100% !important;
+    height: 350px !important;
+}
+
+.texto {
+    text-align: center;
+}
+
+a, h3 {
+    font-size: 30px;
+}
+
+a, h1, h2, h3, h4, a, p {
+    font-family: 'Rancho', cursive;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+a, p {
+    color: #ffffff !important;
+}
+
+button {
+    font-family: 'Rancho', cursive !important;
+    font-size: 30px !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    border: 2px solid #0c7c24;
+    background-color: #326437;
+    width: 240px;
+    height: 52px;
+}
+
+#footer {
+    height: 130px;
+    background-color: #73E19D;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-right: auto;
+}
+
+#footer > #texto {
+    margin-left: 0.5%;
+    font-size: 30px;
+}
+
+
+.class-btnCerrar{
+    background-color: #D70A0A;
+    border: 2px solid #D70A0A;
+}
+
+
+.class-align-left{
+    text-align: right;
+}
+
+.form-control{
+    width: 504px !important;
+}
+
+.refVolver{
+    color: #326437 !important;
+    text-decoration-line: underline;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
