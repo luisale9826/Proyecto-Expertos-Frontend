@@ -1,8 +1,23 @@
 #map {
     width: 250px;
     height: 250px;
+    margin-left: 6%;
+}
+
+mat-form-field {
+    width: 280px !important;
 }
 
 h2 {
     font-size: 30px;
+    text-align: center;
+}
+
+.formulario {
+    background-color: #F6F6F6;
+}
+
+button {
+    background-color: #326437;
+    margin-left: 6%;
 }

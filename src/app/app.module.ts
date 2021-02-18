@@ -12,12 +12,13 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { FormDialogComponent } from './components/dialogs/form-dialog/form-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { DestinosDialogComponent } from './components/dialogs/destinos-dialog/destinos-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultadosComponent } from './components/dialogs/resultados/resultados.component';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ResultadosComponent } from './components/dialogs/resultados/resultados.
     CarrouselComponent,
     FormDialogComponent,
     DestinosDialogComponent,
-    ResultadosComponent
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,9 @@ import { ResultadosComponent } from './components/dialogs/resultados/resultados.
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

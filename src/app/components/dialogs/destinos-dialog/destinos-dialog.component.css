@@ -1,0 +1,28 @@
+iframe {
+    width: 300px;
+    height: auto;
+}
+
+img {
+    width: 250px;
+    height: auto;
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+    text-justify: center;
+}
+
+.lugares {
+    background-color: #C4C4C4;
+}
+
+.lugar {
+    background-color: #6ABFC5;
+}
+
+.lugar:hover {
+    cursor: pointer;
+    box-shadow: #000000;
+}

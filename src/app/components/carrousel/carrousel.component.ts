@@ -19,17 +19,19 @@ export class CarrouselComponent implements OnInit {
     const dialogRef = this.dialog.open(FormDialogComponent);
     dialogRef.afterClosed().subscribe(
       (data) => {
-        this.ls.getEuclides(data).subscribe(
-          (res: LugarModel) => {
-            this.dialog.open(ResultadosComponent, {
-              width: '350px',
-              data: { lugar: res },
-            });
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+        if (data) {
+          this.ls.getEuclides(data).subscribe(
+            (res: LugarModel) => {
+              this.dialog.open(ResultadosComponent, {
+                width: '350px',
+                data: { titulo: 'Te recomendamos ir a', lugar: res },
+              });
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+        }
       },
       (error) => {}
     );

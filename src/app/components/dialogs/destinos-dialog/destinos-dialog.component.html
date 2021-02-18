@@ -1,4 +1,30 @@
 <h2 mat-dialog-title>Destinos</h2>
 <mat-dialog-content>
-
+    <div class="lugares" fxLayout="column" fxLayoutGap="2%">
+        <div class="lugar" fxLayout="row" fxLayoutGap="3%">
+            <div fxFlex="50%">
+                <h2>Imagen</h2>
+            </div>
+            <div fxFlex="25%">
+                <h2>Nombre</h2>
+            </div>
+            <div fxFlex="25%">
+                <h2>Categoría</h2>
+            </div>
+        </div>
+        <div *ngFor="let lugar of lugares">
+            <div class="lugar" fxLayout="row" fxLayoutGap="3%" (click)="openLugar(lugar)">
+                <div fxFlex="50%">
+                    <img *ngIf="lugar.url_foto !== null" [src]="lugar.url_foto" alt="">
+                    <iframe *ngIf="lugar.url_video !== null" [src]="lugar.url_video"></iframe>
+                </div>
+                <div fxFlex="25%">
+                    <h2>{{lugar.nombre}}</h2>
+                </div>
+                <div fxFlex="25%">
+                    <h2>{{lugar.categoria}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </mat-dialog-content>
