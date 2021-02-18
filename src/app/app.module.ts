@@ -15,6 +15,9 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { DestinosDialogComponent } from './components/dialogs/destinos-dialog/destinos-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResultadosComponent } from './components/dialogs/resultados/resultados.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     CarrouselComponent,
     FormDialogComponent,
     DestinosDialogComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatFormFieldModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -13,4 +13,8 @@ export class LugaresService {
   getLugares(): Observable<LugarModel[]> {
     return this.http.get<LugarModel[]>(`${environment.url}lugares`);
   }
+
+  getEuclides(body: any): Observable<any> {
+    return this.http.get<any>(`${environment.url}euclides`, body);
+  }
 }

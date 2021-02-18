@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Te recomendamos ir a</h2>
+<mat-dialog-content>
+    <div>
+        <div>
+            <h2>{{lugar.nombre}}</h2>
+        </div>
+        <div>
+            <p>{{lugar.descripcion}}</p>
+        </div>
+        <div>
+            <h3>{{lugar.categoria}}</h3>
+        </div>
+        <div>
+            <img *ngIf="lugar.url_foto !== null" [src]="lugar.url_foto" alt="" srcset="">
+        </div>
+        <div fxLayout="row" fxFill>
+            <div id='map'></div>
+        </div>
+    </div>
+</mat-dialog-content>

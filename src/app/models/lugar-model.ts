@@ -3,13 +3,13 @@ export class LugarModel {
    *
    */
   constructor(
-    nombre: string,
-    descripcion: string,
-    categoria: string,
-    latitud: number,
-    longitud: number,
-    url_foto?: string,
-    url_video?: string,
-    id_lugar?: number
+    public nombre: string,
+    public descripcion: string,
+    public categoria: string,
+    public latitud: number,
+    public longitud: number,
+    public url_foto?: string,
+    public url_video?: string,
+    public id_lugar?: number
   ) {}
 }

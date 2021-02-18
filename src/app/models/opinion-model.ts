@@ -3,14 +3,14 @@ export class OpinionModel {
    *
    */
   constructor(
-    mejor_mes: number,
-    alojamiento: number,
-    accesibilidad: number,
-    precio: number,
-    clima: number,
-    comida: number,
-    conexion_internet: number,
-    id_lugar: number,
-    id_opinion?: number
+    public mejor_mes: number,
+    public alojamiento: number,
+    public accesibilidad: number,
+    public precio: number,
+    public clima: number,
+    public comida: number,
+    public conexion_internet: number,
+    public id_lugar: number,
+    public id_opinion?: number
   ) {}
 }

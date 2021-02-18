@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import * as mapboxgl from 'mapbox-gl';
+import { OpinionModel } from 'src/app/models/opinion-model';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,7 +11,22 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./form-dialog.component.css'],
 })
 export class FormDialogComponent implements OnInit {
-  constructor() {}
+  public form: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<FormDialogComponent>
+  ) {
+    this.form = this.formBuilder.group({
+      mejor_mes: ['', Validators.required],
+      alojamiento: ['', Validators.required],
+      clima: ['', Validators.required],
+      precio: ['', Validators.required],
+      conexion_internet: ['', Validators.required],
+      accesibilidad: ['', Validators.required],
+      comida: ['', Validators.required],
+    });
+  }
 
   meses = [
     { value: 1, name: 'Enero' },
@@ -76,6 +94,11 @@ export class FormDialogComponent implements OnInit {
         marker.setLngLat(lngLat).addTo(map);
       });
     }
+  }
 
+  calcular(): void {
+    if (this.form.valid) {
+      this.dialogRef.close(this.form.value);
+    }
   }
 }
