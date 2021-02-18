@@ -22,6 +22,7 @@ export class CarrouselComponent implements OnInit {
         this.ls.getEuclides(data).subscribe(
           (res: LugarModel) => {
             this.dialog.open(ResultadosComponent, {
+              width: '350px',
               data: { lugar: res },
             });
           },

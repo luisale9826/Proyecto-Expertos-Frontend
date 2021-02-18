@@ -1,19 +1,25 @@
 <h2 mat-dialog-title>Te recomendamos ir a</h2>
 <mat-dialog-content>
-    <div>
+    <div fxLayout="column">
         <div>
-            <h2>{{lugar.nombre}}</h2>
+            <h1>{{lugar.nombre}}</h1>
         </div>
         <div>
             <p>{{lugar.descripcion}}</p>
         </div>
         <div>
-            <h3>{{lugar.categoria}}</h3>
+            <h3>Categoría: {{lugar.categoria}}</h3>
         </div>
-        <div>
-            <img *ngIf="lugar.url_foto !== null" [src]="lugar.url_foto" alt="" srcset="">
+        <div *ngIf="lugar.url_foto !== null">
+            <h3>Imagen del lugar</h3>
+            <img [src]="lugar.url_foto" alt="" srcset="">
         </div>
-        <div fxLayout="row" fxFill>
+        <div *ngIf="lugar.url_video !== null">
+            <h3>Video del lugar</h3>
+            <iframe [src]="lugar.url_video"></iframe>
+        </div>
+        <div fxLayout="column">
+            <h3>Localización</h3>
             <div id='map'></div>
         </div>
     </div>
