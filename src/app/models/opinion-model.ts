@@ -10,7 +10,9 @@ export class OpinionModel {
     public clima: number,
     public comida: number,
     public conexion_internet: number,
-    public id_lugar: number,
-    public id_opinion?: number
+    public id_lugar?: number,
+    public id_opinion?: number,
+    public latitud?: number,
+    public longitud?: number
   ) {}
 }

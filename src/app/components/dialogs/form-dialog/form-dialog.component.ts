@@ -98,7 +98,16 @@ export class FormDialogComponent implements OnInit {
 
   calcular(): void {
     if (this.form.valid) {
-      this.dialogRef.close(this.form.value);
+      const opinion = new OpinionModel(
+        this.form.get('mejor_mes')?.value,
+        this.form.get('alojamiento')?.value,
+        this.form.get('accesibilidad')?.value,
+        this.form.get('precio')?.value,
+        this.form.get('clima')?.value,
+        this.form.get('comida')?.value,
+        this.form.get('conexion_internet')?.value
+      );
+      this.dialogRef.close(opinion);
     }
   }
 }
