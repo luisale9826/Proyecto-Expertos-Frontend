@@ -1,7 +1,7 @@
-<h2 mat-dialog-title>¿Cual será tu lugar a Vacacionar?</h2>
+<h1 mat-dialog-title>¿Cual será tu lugar a Vacacionar?</h1>
 <mat-dialog-content>
     <form [formGroup]="form">
-        <div fxLayout="column" fxFill>
+        <div fxLayout="column" fxLayoutGap="3%" fxFill>
             <div fxLayout="row" fxFill>
                 <mat-form-field appearance="standard">
                     <mat-label>Mejor Mes</mat-label>
@@ -78,12 +78,15 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-            <div fxLayout="row" fxFill>
-                <div id='map'></div>
+            <div fxLayout="row">
+                <div fxLayout="column" fxLayoutGap="5%">
+                    <h2>Su ubicación actual</h2>
+                    <div id='map'></div>
+                </div>
             </div>
-        </div>
-        <input class="btn btn-success" [disabled]="form.invalid" (click)="calcular()" value="Calcular"
+            <input class="btn btn-success" [disabled]="form.invalid" (click)="calcular()" value="Calcular"
             name="calcular" />
+        </div>
     </form>
 
 </mat-dialog-content>
