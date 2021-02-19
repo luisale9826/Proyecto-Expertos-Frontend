@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>{{data.titulo}}</h2>
+<mat-dialog-content>
+    <div fxLayout="column">
+        <div *ngFor="let lugar of lugares">
+            <div>
+                <h1>{{lugar.nombre}}</h1>
+            </div>
+            <div>
+                <p>{{lugar.descripcion}}</p>
+            </div>
+            <div>
+                <h3>Categoría: {{lugar.categoria}}</h3>
+            </div>
+            <div *ngIf="lugar.url_foto !== null">
+                <h3>Imagen del lugar</h3>
+                <img [src]="lugar.url_foto" alt="" srcset="">
+            </div>
+            <div *ngIf="lugar.url_video !== null">
+                <h3>Video del lugar</h3>
+                <iframe [src]="lugar.url_video"></iframe>
+            </div>
+            <div fxLayout="column">
+                <h3>Localización</h3>
+                <div class="map" [id]="getId(lugar)"></div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FormDialogComponent implements OnInit {
   public form: FormGroup;
+  public consulta: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,7 +26,11 @@ export class FormDialogComponent implements OnInit {
       conexion_internet: ['', Validators.required],
       accesibilidad: ['', Validators.required],
       comida: ['', Validators.required],
+      id_lugar: [''],
+      latitud: [''],
+      longitud: [''],
     });
+    this.consulta = 'Euclides';
   }
 
   meses = [
@@ -68,31 +73,88 @@ export class FormDialogComponent implements OnInit {
     { value: 1, option: 'Frío' },
   ];
 
-  ngOnInit(): void {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        const map = new mapboxgl.Map({
-          accessToken: environment.mapbox.accessToken,
-          container: 'map', // Specify the container ID
-          style: 'mapbox://styles/mapbox/streets-v11', // Specify which map style to use
-          center: [lon, lat], // Specify the starting position
-          zoom: 11.5, // Specify the starting zoom
-        });
+  ngOnInit(): void {}
 
-        const marker = new mapboxgl.Marker({
-          color: '#314ccd',
-        });
+  cambiarConsulta(): void {
+    if (this.consulta === 'Euclides') {
+      this.consulta = 'Bayes';
+      this.form.controls.mejor_mes.setValidators(null);
+      this.form.controls.alojamiento.setValidators(null);
+      this.form.controls.accesibilidad.setValidators(null);
+      this.form.controls.precio.setValidators(null);
+      this.form.controls.clima.setValidators(null);
+      this.form.controls.comida.setValidators(null);
+      this.form.controls.conexion_internet.setValidators(null);
 
-        // Create a LngLat object to use in the marker initialization
-        // https://docs.mapbox.com/mapbox-gl-js/api/#lnglat
-        const lngLat = {
-          lon,
-          lat,
-        };
-        marker.setLngLat(lngLat).addTo(map);
-      });
+      this.form.controls.mejor_mes.updateValueAndValidity();
+
+      this.form.controls.alojamiento.updateValueAndValidity();
+
+      this.form.controls.accesibilidad.updateValueAndValidity();
+
+      this.form.controls.precio.updateValueAndValidity();
+
+      this.form.controls.clima.updateValueAndValidity();
+
+      this.form.controls.comida.updateValueAndValidity();
+
+      this.form.controls.conexion_internet.updateValueAndValidity();
+
+      this.form.controls.id_lugar.setValidators([Validators.required]);
+      this.form.controls.id_lugar.updateValueAndValidity();
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          const map = new mapboxgl.Map({
+            accessToken: environment.mapbox.accessToken,
+            container: 'map', // Specify the container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // Specify which map style to use
+            center: [lon, lat], // Specify the starting position
+            zoom: 11.5, // Specify the starting zoom
+          });
+
+          const marker = new mapboxgl.Marker({
+            color: '#314ccd',
+          });
+
+          // Create a LngLat object to use in the marker initialization
+          // https://docs.mapbox.com/mapbox-gl-js/api/#lnglat
+          const lngLat = {
+            lon,
+            lat,
+          };
+          marker.setLngLat(lngLat).addTo(map);
+          this.form.get('latitud')?.setValue(lat);
+          this.form.get('longitud')?.setValue(lon);
+        });
+      }
+    } else {
+      this.consulta = 'Euclides';
+      this.form.controls.mejor_mes.setValidators([Validators.required]);
+      this.form.controls.mejor_mes.updateValueAndValidity();
+
+      this.form.controls.alojamiento.setValidators([Validators.required]);
+      this.form.controls.alojamiento.updateValueAndValidity();
+
+      this.form.controls.accesibilidad.setValidators([Validators.required]);
+      this.form.controls.accesibilidad.updateValueAndValidity();
+
+      this.form.controls.precio.setValidators([Validators.required]);
+      this.form.controls.precio.updateValueAndValidity();
+
+      this.form.controls.clima.setValidators([Validators.required]);
+      this.form.controls.clima.updateValueAndValidity();
+
+      this.form.controls.comida.setValidators([Validators.required]);
+      this.form.controls.comida.updateValueAndValidity();
+
+      this.form.controls.conexion_internet.setValidators([Validators.required]);
+      this.form.controls.conexion_internet.updateValueAndValidity();
+
+      this.form.controls.id_lugar.setValidators(null);
+      this.form.controls.id_lugar.updateValueAndValidity();
     }
   }
 
@@ -105,9 +167,12 @@ export class FormDialogComponent implements OnInit {
         this.form.get('precio')?.value,
         this.form.get('clima')?.value,
         this.form.get('comida')?.value,
-        this.form.get('conexion_internet')?.value
+        this.form.get('conexion_internet')?.value,
       );
-      this.dialogRef.close(opinion);
+      opinion.id_lugar = this.form.get('id_lugar')?.value;
+      opinion.latitud = this.form.get('latitud')?.value;
+      opinion.longitud = this.form.get('longitud')?.value;
+      this.dialogRef.close({ consulta: this.consulta, opinion });
     }
   }
 }

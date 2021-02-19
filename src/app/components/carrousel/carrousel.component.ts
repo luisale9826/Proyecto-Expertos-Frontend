@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LugarModel } from 'src/app/models/lugar-model';
 import { LugaresService } from 'src/app/services/lugares.service';
 import { FormDialogComponent } from '../dialogs/form-dialog/form-dialog.component';
+import { ResultadosBayesComponent } from '../dialogs/resultados-bayes/resultados-bayes.component';
 import { ResultadosComponent } from '../dialogs/resultados/resultados.component';
 
 @Component({
@@ -20,17 +21,32 @@ export class CarrouselComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       (data) => {
         if (data) {
-          this.ls.getEuclides(data).subscribe(
-            (res: LugarModel) => {
-              this.dialog.open(ResultadosComponent, {
-                width: '350px',
-                data: { titulo: 'Te recomendamos ir a', lugar: res },
-              });
-            },
-            (error) => {
-              console.log(error);
-            }
-          );
+          const {consulta, opinion} = data;
+          if (consulta === 'Euclides') {
+            this.ls.getEuclides(data).subscribe(
+              (res: LugarModel) => {
+                this.dialog.open(ResultadosComponent, {
+                  width: '350px',
+                  data: { titulo: 'Te recomendamos ir a', lugares: res },
+                });
+              },
+              (error) => {
+                console.log(error);
+              }
+            );
+          } else {
+            this.ls.getBayes(opinion).subscribe(
+              (res: LugarModel[]) => {
+                this.dialog.open(ResultadosBayesComponent, {
+                  width: '350px',
+                  data: { titulo: 'Te recomendamos ir a', lugares: res },
+                });
+              },
+              (error) => {
+                console.log(error);
+              }
+            );
+          }
         }
       },
       (error) => {}

@@ -1,0 +1,18 @@
+.map {
+    width: 250px;
+    height: 250px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+iframe {
+    width: 300px;
+    height: auto;
+}
+
+img {
+    width: 250px;
+    height: auto;
+}

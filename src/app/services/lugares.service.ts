@@ -18,4 +18,8 @@ export class LugaresService {
   getEuclides(body: OpinionModel): Observable<any> {
     return this.http.post<any>(`${environment.url}euclides`, body);
   }
+
+  getBayes(body: OpinionModel): Observable<any> {
+    return this.http.post<any>(`${environment.url}bayes`, body);
+  }
 }

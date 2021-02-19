@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultadosComponent } from './components/dialogs/resultados/resultados.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ResultadosBayesComponent } from './components/dialogs/resultados-bayes/resultados-bayes.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     FormDialogComponent,
     DestinosDialogComponent,
     ResultadosComponent,
+    ResultadosBayesComponent,
   ],
   imports: [
     BrowserModule,
