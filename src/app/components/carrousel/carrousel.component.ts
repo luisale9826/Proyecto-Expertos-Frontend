@@ -27,7 +27,7 @@ export class CarrouselComponent implements OnInit {
               (res: LugarModel) => {
                 this.dialog.open(ResultadosComponent, {
                   width: '350px',
-                  data: { titulo: 'Te recomendamos ir a', lugares: res },
+                  data: { titulo: 'Te recomendamos ir a', lugar: res },
                 });
               },
               (error) => {
