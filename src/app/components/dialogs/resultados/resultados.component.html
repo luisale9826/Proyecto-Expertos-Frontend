@@ -16,7 +16,10 @@
         </div>
         <div *ngIf="lugar.url_video !== null">
             <h3>Video del lugar</h3>
-            <iframe [src]="lugar.url_video"></iframe>
+            <iframe [src]="lugar.url_video" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <p>Si el video no carga es porque Youtube bloquea la solicitud</p>
         </div>
         <div fxLayout="column">
             <h3>Localización</h3>

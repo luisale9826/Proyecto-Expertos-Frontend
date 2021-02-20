@@ -16,7 +16,10 @@
             <div class="lugar" fxLayout="row" fxLayoutGap="3%" (click)="openLugar(lugar)">
                 <div fxFlex="50%">
                     <img *ngIf="lugar.url_foto !== null" [src]="lugar.url_foto" alt="">
-                    <iframe *ngIf="lugar.url_video !== null" [src]="lugar.url_video"></iframe>
+                    <iframe *ngIf="lugar.url_video !== null" [src]="lugar.url_video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
                 <div fxFlex="25%">
                     <h2>{{lugar.nombre}}</h2>
