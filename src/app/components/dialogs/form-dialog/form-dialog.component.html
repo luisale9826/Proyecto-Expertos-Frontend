@@ -1,112 +1,125 @@
 <h1 mat-dialog-title>¿Cual será tu lugar a Vacacionar?</h1>
 <mat-dialog-content>
-    <button (click)="cambiarConsulta()" >{{consulta}}</button>
-    <form [formGroup]="form">
-        <div class="formulario" fxLayout="column" fxLayoutGap="3%" fxFill>
-            <ng-container *ngIf="consulta === 'Euclides'; else elseTemplate">
-                <div fxLayout="row" fxFill>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Mejor Mes</mat-label>
-                        <mat-select formControlName="mejor_mes">
-                            <mat-option *ngFor="let mes of meses" [value]="mes.value">
-                                {{mes.name}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div fxLayout="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Alojamiento</mat-label>
-                        <mat-select formControlName="alojamiento">
-                            <mat-option *ngFor="let aloj of alojamiento" [value]="aloj.value">
-                                {{aloj.option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div fxLayout="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Accesibilidad</mat-label>
-                        <mat-select formControlName="accesibilidad">
-                            <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
-                                {{opcion.option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div fxLayout="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Precio</mat-label>
-                        <mat-select formControlName="precio">
-                            <mat-option *ngFor="let p of precio" [value]="p.value">
-                                {{p.option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div fxLayout="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Clima</mat-label>
-                        <mat-select formControlName="clima">
-                            <mat-option *ngFor="let c of clima" [value]="c.value">
-                                {{c.option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div fxLayout="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Comida</mat-label>
-                        <mat-select formControlName="comida">
-                            <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
-                                {{opcion.option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-                <div fxLayout="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Conexión a Internet</mat-label>
-                        <mat-select formControlName="conexion_internet">
-                            <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
-                                {{opcion.option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-            </ng-container>
-            <ng-template #elseTemplate>
-                <div fxLayout="row">
-                    <div fxLayout="column" fxLayoutGap="5%">
-                        <h2>Su ubicación actual</h2>
-                        <div id='map'></div>
-                    </div>
-                </div>
-                <mat-form-field appearance="outline">
-                    <mat-label>Categoría</mat-label>
-                    <mat-select formControlName="id_lugar">
-                        <mat-option value="1">
-                            Montaña
-                        </mat-option>
-                        <mat-option value="2">
-                            Playa
-                        </mat-option>
-                        <mat-option value="3">
-                            Rural
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </ng-template>
-            <div fxLayout="row">
-                <button class="btn btn-success" [disabled]="form.invalid" (click)="calcular()">Calcular</button>
-            </div>
+    <div fxLayout="column" fxLayoutGap="3%" fxFill>
+        <div>
+            <p>Puede hacer click en el botón para cambiar el algoritmo Euclides a Bayes y viceversa</p>
         </div>
-    </form>
+        <div>
+            <p>
+                Una vez completados los datos correctamente y enviado el formulario se le <br />
+                abrirá una pantalla con el resultado. <br />
+                El proceso pude durar hasta 2 minutos debido al tiempo de respuesta del servidor. <br />
+                Gracias por entender
+            </p>
+            <p> </p>
+        </div>
+        <button (click)="cambiarConsulta()">{{consulta}}</button>
+        <form [formGroup]="form">
+            <div class="formulario" fxLayout="column" fxLayoutGap="3%" fxFill>
+                <ng-container *ngIf="consulta === 'Euclides'; else elseTemplate">
+                    <div fxLayout="row" fxFill>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Mejor Mes</mat-label>
+                            <mat-select formControlName="mejor_mes">
+                                <mat-option *ngFor="let mes of meses" [value]="mes.value">
+                                    {{mes.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
 
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Alojamiento</mat-label>
+                            <mat-select formControlName="alojamiento">
+                                <mat-option *ngFor="let aloj of alojamiento" [value]="aloj.value">
+                                    {{aloj.option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Accesibilidad</mat-label>
+                            <mat-select formControlName="accesibilidad">
+                                <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
+                                    {{opcion.option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Precio</mat-label>
+                            <mat-select formControlName="precio">
+                                <mat-option *ngFor="let p of precio" [value]="p.value">
+                                    {{p.option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Clima</mat-label>
+                            <mat-select formControlName="clima">
+                                <mat-option *ngFor="let c of clima" [value]="c.value">
+                                    {{c.option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Comida</mat-label>
+                            <mat-select formControlName="comida">
+                                <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
+                                    {{opcion.option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Conexión a Internet</mat-label>
+                            <mat-select formControlName="conexion_internet">
+                                <mat-option *ngFor="let opcion of tresOpcionesSel" [value]="opcion.value">
+                                    {{opcion.option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <div fxLayout="row">
+                        <div fxLayout="column" fxLayoutGap="5%">
+                            <h2>Su ubicación actual</h2>
+                            <div id='map'></div>
+                        </div>
+                    </div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Categoría</mat-label>
+                        <mat-select formControlName="id_lugar">
+                            <mat-option value="1">
+                                Montaña
+                            </mat-option>
+                            <mat-option value="2">
+                                Playa
+                            </mat-option>
+                            <mat-option value="3">
+                                Rural
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ng-template>
+                <div fxLayout="row">
+                    <button class="btn btn-success" [disabled]="form.invalid" (click)="calcular()">Calcular</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </mat-dialog-content>

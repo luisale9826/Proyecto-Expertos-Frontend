@@ -23,7 +23,7 @@ export class CarrouselComponent implements OnInit {
         if (data) {
           const {consulta, opinion} = data;
           if (consulta === 'Euclides') {
-            this.ls.getEuclides(data).subscribe(
+            this.ls.getEuclides(opinion).subscribe(
               (res: LugarModel) => {
                 this.dialog.open(ResultadosComponent, {
                   width: '350px',
