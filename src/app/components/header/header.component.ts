@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DestinosDialogComponent } from '../dialogs/destinos-dialog/destinos-dialog.component';
+import { LugarFormComponent } from '../lugar/lugar-form/lugar-form.component';
 
 @Component({
   selector: 'app-header',
@@ -14,5 +15,9 @@ export class HeaderComponent implements OnInit {
 
   openDestinos(): void {
     this.dialog.open(DestinosDialogComponent);
+  }
+
+  openInsertar(): void {
+    this.dialog.open(LugarFormComponent);
   }
 }

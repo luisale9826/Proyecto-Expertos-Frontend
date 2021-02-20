@@ -20,6 +20,8 @@ import { ResultadosComponent } from './components/dialogs/resultados/resultados.
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ResultadosBayesComponent } from './components/dialogs/resultados-bayes/resultados-bayes.component';
+import { LugarFormComponent } from './components/lugar/lugar-form/lugar-form.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { ResultadosBayesComponent } from './components/dialogs/resultados-bayes/
     DestinosDialogComponent,
     ResultadosComponent,
     ResultadosBayesComponent,
+    LugarFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ResultadosBayesComponent } from './components/dialogs/resultados-bayes/
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -9,6 +9,7 @@ import { OpinionModel } from '../models/opinion-model';
   providedIn: 'root',
 })
 export class LugaresService {
+
   constructor(private http: HttpClient) {}
 
   getLugares(): Observable<LugarModel[]> {
@@ -21,5 +22,9 @@ export class LugaresService {
 
   getBayes(body: OpinionModel): Observable<any> {
     return this.http.post<any>(`${environment.url}bayes`, body);
+  }
+
+  agregarLugar(lugar: LugarModel) {
+    return this.http.post<any>(`${environment.url}lugares`, lugar);
   }
 }
