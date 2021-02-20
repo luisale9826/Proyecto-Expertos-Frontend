@@ -24,7 +24,7 @@ export class LugaresService {
     return this.http.post<any>(`${environment.url}bayes`, body);
   }
 
-  agregarLugar(lugar: LugarModel) {
+  agregarLugar(lugar: LugarModel): Observable<any> {
     return this.http.post<any>(`${environment.url}lugares`, lugar);
   }
 }
