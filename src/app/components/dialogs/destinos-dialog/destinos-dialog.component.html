@@ -1,6 +1,11 @@
 <h2 mat-dialog-title>Destinos</h2>
 <mat-dialog-content>
     <div class="lugares" fxLayout="column" fxLayoutGap="2%">
+        <div>
+            <p>Puede hacer click sobre cualquier detino para ver m[as detalles del mismo. <br />
+                Algunos detinos tardan en cargar por lo que agradecemos su comprensión
+            </p>
+        </div>
         <div class="lugar" fxLayout="row" fxLayoutGap="3%">
             <div fxFlex="50%">
                 <h2>Imagen</h2>
@@ -16,8 +21,7 @@
             <div class="lugar" fxLayout="row" fxLayoutGap="3%" (click)="openLugar(lugar)">
                 <div fxFlex="50%">
                     <img *ngIf="lugar.url_foto !== null" [src]="lugar.url_foto" alt="">
-                    <iframe *ngIf="lugar.url_video !== null" [src]="lugar.url_video"
-                        frameborder="0"
+                    <iframe *ngIf="lugar.url_video !== null" [src]="lugar.url_video" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
