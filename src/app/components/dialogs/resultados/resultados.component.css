@@ -16,3 +16,8 @@ img {
     width: 250px;
     height: auto;
 }
+
+p {
+    font-size: 20px;
+    color: black !important;
+}
